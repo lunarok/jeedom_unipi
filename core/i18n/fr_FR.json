@@ -1,0 +1,27 @@
+{
+    "plugins\/unipi\/desktop\/php\/unipi.php": {
+        "Ajouter un équipement": "Ajouter un équipement",
+        "Rechercher": "Rechercher",
+        "Mes UniPi": "Mes UniPi",
+        "Général": "Général",
+        "Nom de l'Unipi": "Nom de l'Unipi",
+        "Nom de l'équipement unipi": "Nom de l'équipement unipi",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Catégorie": "Catégorie",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "Commentaire": "Commentaire",
+        "Informations": "Informations",
+        "Adresse Unipi": "Adresse Unipi",
+        "UniPi": "UniPi",
+        "Supprimer": "Supprimer",
+        "Sauvegarder": "Sauvegarder",
+        "Ajouter une info": "Ajouter une info",
+        "Ajouter une commande": "Ajouter une commande",
+        "Nom": "Nom",
+        "Sous-Type": "Sous-Type",
+        "Valeur": "Valeur",
+        "Paramètres": "Paramètres"
+    }
+}

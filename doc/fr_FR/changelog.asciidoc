@@ -1,0 +1,12 @@
+==== Version 1.0
+
+Mise à jour de la chartre graphique
+
+Installation par le moteur 2.0
+
+==== Version 0.1
+
+Première version
+
+ - Permet de récupérer automatiquement les informations d'une carte UniPi
+ - Mise à jour automatique en push des informations

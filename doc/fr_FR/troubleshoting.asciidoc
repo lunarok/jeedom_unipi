@@ -1,0 +1,5 @@
+[panel,danger]
+.Evok n'est pas installé sur mon système
+--
+L'installation d'Evok n'est pas effectuée par le plugin, car ce n'est pas un prérequis d'avoir Jeedom installé sur le Pi avec la carte UniPi
+--
