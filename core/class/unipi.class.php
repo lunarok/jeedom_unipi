@@ -312,7 +312,7 @@ class unipi extends eqLogic {
     $body = 'value=' . $value;
     $opts = array('http' => array(
         'header' => "Content-Type: application/x-www-form-urlencoded\r\n".
-                    "Content-Length: ".strlen($query)."\r\n".
+                    "Content-Length: ".strlen($body)."\r\n".
                     "User-Agent:MyAgent/1.0\r\n",
         'method'  => "POST",
         'content' => $body,
