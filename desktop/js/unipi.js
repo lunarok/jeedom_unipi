@@ -24,7 +24,7 @@ function addCmdToTable(_cmd) {
   tr += '<td>';
   tr += '<span class="cmdAttr" data-l1key="id"></span>';
   tr += '</td><td>';
-  tr += '<span class="cmdAttr" data-l1key="name"></span>';
+  tr += '<input class="cmdAttr form-control input-sm" data-l1key="name" style="width : 140px;" placeholder="{{Nom commande}}"></td>';
   tr += '</td><td>';
   tr += '<span class="cmdAttr" data-l1key="type"></span> / <span class="cmdAttr" data-l1key="subType"></span>';
   tr += '</td>';
@@ -36,7 +36,7 @@ function addCmdToTable(_cmd) {
   tr += '<td>';
   tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
   if (init(_cmd.type) == 'info') {
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Afficher}}</label></span> ';
+    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
   }
   tr += '</td>';
   tr += '<td>';
