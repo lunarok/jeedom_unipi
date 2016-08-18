@@ -123,8 +123,17 @@ function addCmdToTable(_cmd) {
         }
         tr += '<i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
         tr += '</tr>';
-
-        $('#table_cmd tbody').append(tr);
+        if (init(_cmd.configuration.type) == 'input') {
+          $('#input_cmd tbody').append(tr);
+        } else if (init(_cmd.configuration.type) == 'relay') {
+          $('#relay_cmd tbody').append(tr);
+        } else if (init(_cmd.configuration.type) == 'analog') {
+          $('#analog_cmd tbody').append(tr);
+        } else if (init(_cmd.configuration.type) == 'temp') {
+          $('#temp_cmd tbody').append(tr);
+        } else {
+          $('#table_cmd tbody').append(tr);
+        }
         //$('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         var tr = $('#table_cmd tbody tr:last');
  	jeedom.eqLogic.builSelectCmd({

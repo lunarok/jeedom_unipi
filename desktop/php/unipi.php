@@ -63,6 +63,10 @@ $eqLogics = eqLogic::byType('unipi');
 
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-tachometer"></i> {{Equipement}}</a></li>
+      <li role="presentation"><a href="#inputtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Entrées Digitales}}</a></li>
+      <li role="presentation"><a href="#relaytab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Relais}}</a></li>
+      <li role="presentation"><a href="#analogtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{IO Analogiques}}</a></li>
+      <li role="presentation"><a href="#temptab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Température 1wire}}</a></li>
       <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Commandes}}</a></li>
     </ul>
 
@@ -132,13 +136,88 @@ $eqLogics = eqLogic::byType('unipi');
           </fieldset>
         </form>
       </div>
-      
-    <div role="tabpanel" class="tab-pane" id="commandtab">
 
-        <div class="form-actions">
-          <a class="btn btn-default btn-sm" id="bt_addunipiInfo"><i class="fa fa-plus-circle"></i> {{Ajouter une info}}</a>
-          <a class="btn btn-default btn-sm" id="bt_addunipiAction"><i class="fa fa-plus-circle"></i> {{Ajouter une commande}}</a><br/><br/>
-        </div>
+    <div role="tabpanel" class="tab-pane" id="inputtab">
+
+      <table id="input_cmd" class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th style="width: 150px;">{{Nom}}</th>
+            <th style="width: 110px;">{{Sous-Type}}</th>
+            <th style="width: 100px;">{{Valeur}}</th>
+            <th style="width: 200px;">{{Paramètres}}</th>
+            <th style="width: 100px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="relaytab">
+
+      <table id="relay_cmd" class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th style="width: 150px;">{{Nom}}</th>
+            <th style="width: 110px;">{{Sous-Type}}</th>
+            <th style="width: 100px;">{{Valeur}}</th>
+            <th style="width: 200px;">{{Paramètres}}</th>
+            <th style="width: 100px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="analogtab">
+
+      <table id="analog_cmd" class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th style="width: 150px;">{{Nom}}</th>
+            <th style="width: 110px;">{{Sous-Type}}</th>
+            <th style="width: 100px;">{{Valeur}}</th>
+            <th style="width: 200px;">{{Paramètres}}</th>
+            <th style="width: 100px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="temptab">
+
+      <table id="temp_cmd" class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th style="width: 50px;">#</th>
+            <th style="width: 150px;">{{Nom}}</th>
+            <th style="width: 110px;">{{Sous-Type}}</th>
+            <th style="width: 100px;">{{Valeur}}</th>
+            <th style="width: 200px;">{{Paramètres}}</th>
+            <th style="width: 100px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="commandtab">
 
       <table id="table_cmd" class="table table-bordered table-condensed">
         <thead>
