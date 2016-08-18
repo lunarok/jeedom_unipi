@@ -25,11 +25,6 @@ $("#bt_addunipiAction").on('click', function(event) {
 });
 
 
-/*
-$('#table_cmd tbody').delegate('tr .remove', 'click', function(event) {
-    $(this).closest('tr').remove();
-});*/
-
 $("#table_cmd").delegate(".listEquipementInfo", 'click', function() {
     var el = $(this);
     jeedom.cmd.getSelectModal({cmd: {type: 'info'}}, function(result) {

@@ -132,18 +132,13 @@ $eqLogics = eqLogic::byType('unipi');
           </fieldset>
         </form>
       </div>
-    </div>
-
+      
     <div role="tabpanel" class="tab-pane" id="commandtab">
 
-    <form class="form-horizontal">
-      <fieldset>
         <div class="form-actions">
           <a class="btn btn-default btn-sm" id="bt_addunipiInfo"><i class="fa fa-plus-circle"></i> {{Ajouter une info}}</a>
           <a class="btn btn-default btn-sm" id="bt_addunipiAction"><i class="fa fa-plus-circle"></i> {{Ajouter une commande}}</a><br/><br/>
         </div>
-      </fieldset>
-
 
       <table id="table_cmd" class="table table-bordered table-condensed">
         <thead>
