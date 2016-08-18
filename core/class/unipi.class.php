@@ -310,11 +310,13 @@ class unipi extends eqLogic {
     // wget -qO- htt://ip/rest/relay/3 --post-data='value=1' {"result": 1, "success": true}
     $cmdAddr = $devAddr = 'http://' . $unipi . '/rest/' . $type . '/' . $number;
     $body = 'value=' . $value;
-    $opts = array('http' =>
-    array(
-      'method'  => 'POST',
-      'content' => $body,
-    )
+    $opts = array('http' => array(
+        'header' => "Content-Type: application/x-www-form-urlencoded\r\n".
+                    "Content-Length: ".strlen($query)."\r\n".
+                    "User-Agent:MyAgent/1.0\r\n",
+        'method'  => "POST",
+        'content' => $body,
+    ),
   );
   $context  = stream_context_create($opts);
   $result = file_get_contents($cmdAddr, false, $context, -1, 40000);
