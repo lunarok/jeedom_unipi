@@ -35,6 +35,9 @@ function addCmdToTable(_cmd) {
   tr += '</td>';
   tr += '<td>';
   tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
+  if (init(_cmd.type) == 'info') {
+    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Afficher}}</label></span> ';
+  }
   tr += '</td>';
   tr += '<td>';
   if (is_numeric(_cmd.id)) {
@@ -49,7 +52,7 @@ function addCmdToTable(_cmd) {
   } else if (init(_cmd.configuration.type) == 'relay') {
     $('#relay_cmd tbody').append(tr);
     var tr = $('#relay_cmd tbody tr:last');
-  } else if (init(_cmd.configuration.type) == 'analog') {
+  } else if (init(_cmd.configuration.type) == 'ao' || init(_cmd.configuration.type) == 'ai') {
     $('#analog_cmd tbody').append(tr);
     var tr = $('#analog_cmd tbody tr:last');
   } else if (init(_cmd.configuration.type) == 'temp') {
