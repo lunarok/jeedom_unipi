@@ -78,12 +78,23 @@ function addCmdToTable(_cmd) {
         }
         tr += '<i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
         tr += '</tr>';
-        $('#table_cmd tbody').append(tr);
-        $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
-        /*if (isset(_cmd.type)) {
-            $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
+        if (init(_cmd.configuration.type) == 'input') {
+          $('#input_cmd tbody').append(tr);
+          $('#input_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+        } else if (init(_cmd.configuration.type) == 'relay') {
+          $('#relay_cmd tbody').append(tr);
+          $('#relay_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+        } else if (init(_cmd.configuration.type) == 'analog') {
+          $('#analog_cmd tbody').append(tr);
+          $('#analog_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+        } else if (init(_cmd.configuration.type) == 'temp') {
+          $('#temp_cmd tbody').append(tr);
+          $('#temp_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+        } else {
+          $('#table_cmd tbody').append(tr);
+          $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         }
-        jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));*/
+
     }
 
     if (init(_cmd.type) == 'action') {
@@ -108,7 +119,6 @@ function addCmdToTable(_cmd) {
         tr += '<td>';
         tr += '<input class="cmdAttr form-control type input-sm" data-l1key="type" value="action" disabled style="margin-bottom : 5px;" />';
         tr += '<span class="subType" subType="' + init(_cmd.subType) + '" style=""></span>';
-        //tr += '<input class="cmdAttr" data-l1key="configuration" data-l2key="virtualAction" value="1" style="display:none;" >';
         tr += '</td>';
          tr += '<td>';
 		tr += '<textarea class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request" style="height : 33px;" ' + disabled + ' placeholder="{{Valeur}}"></textarea>';
@@ -125,17 +135,21 @@ function addCmdToTable(_cmd) {
         tr += '</tr>';
         if (init(_cmd.configuration.type) == 'input') {
           $('#input_cmd tbody').append(tr);
+          $('#input_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         } else if (init(_cmd.configuration.type) == 'relay') {
           $('#relay_cmd tbody').append(tr);
+          $('#relay_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         } else if (init(_cmd.configuration.type) == 'analog') {
           $('#analog_cmd tbody').append(tr);
+          $('#analog_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         } else if (init(_cmd.configuration.type) == 'temp') {
           $('#temp_cmd tbody').append(tr);
+          $('#temp_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         } else {
           $('#table_cmd tbody').append(tr);
+          $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
         }
-        //$('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
-        var tr = $('#table_cmd tbody tr:last');
+        //var tr = $('#table_cmd tbody tr:last');
  	jeedom.eqLogic.builSelectCmd({
 	id: $(".li_eqLogic.active").attr('data-eqLogic_id'),
 	filter: {type: 'info'},
