@@ -25,29 +25,21 @@ class unipi extends eqLogic {
   public static function health() {
     $return = array();
     $deamon_info = self::deamon_info();
+    $status = true;
     foreach (eqLogic::byType('unipi') as $unipi) {
       $addr = $unipi->getConfiguration('addr');
-      $status = false;
       foreach ($deamon_info['notlaunched'] as $service) {
         if ($service == $addr) {
-          $status = true;
+          $status = false;
         }
       }
-      $socket = socket_create(AF_INET, SOCK_STREAM, 0);
-      $server = socket_connect ($socket , $addr, '80');
-      $return[] = array(
+    }
+    $return[] = array(
         'test' => __('Service ' . $addr, __FILE__),
         'result' => ($status) ? __('OK', __FILE__) : __('NOK', __FILE__),
         'advice' => ($status) ? '' : __('Indique si le service de connexion est actif', __FILE__),
         'state' => $status,
       );
-      $return[] = array(
-        'test' => __('API ' . $addr, __FILE__),
-        'result' => ($server) ? __('OK', __FILE__) : __('NOK', __FILE__),
-        'advice' => ($server) ? '' : __('Indique si l\'API Evok est disponible', __FILE__),
-        'state' => $server,
-      );
-    }
     return $return;
   }
 
