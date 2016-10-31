@@ -15,13 +15,10 @@
 * You should have received a copy of the GNU General Public License
 * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 */
-
-/* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 
 class unipi extends eqLogic {
-  /*     * *************************Attributs****************************** */
   public static function health() {
     $return = array();
     $deamon_info = self::deamon_info();
@@ -35,11 +32,11 @@ class unipi extends eqLogic {
       }
     }
     $return[] = array(
-        'test' => __('Service ' . $addr, __FILE__),
-        'result' => ($status) ? __('OK', __FILE__) : __('NOK', __FILE__),
-        'advice' => ($status) ? '' : __('Indique si le service de connexion est actif', __FILE__),
-        'state' => $status,
-      );
+      'test' => __('Service ' . $addr, __FILE__),
+      'result' => ($status) ? __('OK', __FILE__) : __('NOK', __FILE__),
+      'advice' => ($status) ? '' : __('Indique si le service de connexion est actif', __FILE__),
+      'state' => $status,
+    );
     return $return;
   }
 
@@ -47,12 +44,12 @@ class unipi extends eqLogic {
     $return = array();
     $return['log'] = 'unipi_dep';
     $cmd = "dpkg -l | grep python-websocket";
-        exec($cmd, $output, $return_var);
-        if ($output[0] != "") {
-          $return['state'] = 'ok';
-        } else {
-          $return['state'] = 'nok';
-        }
+    exec($cmd, $output, $return_var);
+    if ($output[0] != "") {
+      $return['state'] = 'ok';
+    } else {
+      $return['state'] = 'nok';
+    }
     return $return;
   }
 
@@ -76,12 +73,7 @@ class unipi extends eqLogic {
     }
     log::add('unipi', 'info', 'Lancement du démon unipi');
 
-    if (!config::byKey('internalPort')) {
-      $url = config::byKey('internalProtocol') . config::byKey('internalAddr') . ':' . config::byKey('internalComplement') . '/core/api/jeeApi.php?api=' . config::byKey('api');
-    } else {
-      $url = config::byKey('internalProtocol') . config::byKey('internalAddr') . ':' . config::byKey('internalPort') . config::byKey('internalComplement') . '/core/api/jeeApi.php?api=' . config::byKey('api');
-    }
-
+    $url = network::getNetworkAccess('internal') . '/plugins/unipi/core/api/unipi.php?apikey=' . jeedom::getApiKey('unipi');
     $service_path = realpath(dirname(__FILE__) . '/../../resources');
 
     foreach ($deamon_info['notlaunched'] as $addr) {
@@ -120,19 +112,19 @@ class unipi extends eqLogic {
     $return['notlaunched'] = array();
     $return['launched'] = array();
     foreach (eqLogic::byType('unipi') as $unipi) {
-        if ($unipi->getIsEnable() == 1 ) {
-          $pid = trim( shell_exec ('ps ax | grep "unipi/resources/unipi.py '. $unipi->getConfiguration('addr') . '" | grep -v "grep" | wc -l') );
-          if ($pid != '' && $pid != '0') {
-            $return['launched'][] = $unipi->getConfiguration('addr');
-          } else {
-            $return['state'] = 'nok';
-            $return['notlaunched'][] = $unipi->getConfiguration('addr');
-          }
-          if ($unipi->getConfiguration('addr') == '') {
-            $return['launchable'] = 'nok';
-            $return['launchable_message'] = __('Le port de ' . $unipi->getName() . ' n\'est pas configuré', __FILE__);
-          }
+      if ($unipi->getIsEnable() == 1 ) {
+        $pid = trim( shell_exec ('ps ax | grep "unipi/resources/unipi.py '. $unipi->getConfiguration('addr') . '" | grep -v "grep" | wc -l') );
+        if ($pid != '' && $pid != '0') {
+          $return['launched'][] = $unipi->getConfiguration('addr');
+        } else {
+          $return['state'] = 'nok';
+          $return['notlaunched'][] = $unipi->getConfiguration('addr');
         }
+        if ($unipi->getConfiguration('addr') == '') {
+          $return['launchable'] = 'nok';
+          $return['launchable_message'] = __('Le port de ' . $unipi->getName() . ' n\'est pas configuré', __FILE__);
+        }
+      }
     }
     return $return;
   }
@@ -281,10 +273,7 @@ class unipi extends eqLogic {
     }
   }
 
-  public static function saveValue() {
-    $cmdid = init('id');
-    $value = init('value');
-    $addr = init('addr');
+  public static function saveValue($cmdid, $value, $addr) {
     log::add('unipi', 'debug', 'Sauvegarde ' . $cmdid . ' à valeur ' . $value . ' sur ' . $addr);
     $elogic = self::byLogicalId($addr, 'unipi');
     if (is_object($elogic)) {
@@ -303,11 +292,11 @@ class unipi extends eqLogic {
     $cmdAddr = $devAddr = 'http://' . $unipi . '/rest/' . $type . '/' . $number;
     $body = 'value=' . $value;
     $opts = array('http' => array(
-        'header' => "Content-Type: application/x-www-form-urlencoded\r\n".
-                    "Content-Length: ".strlen($body)."\r\n".
-                    "User-Agent:MyAgent/1.0\r\n",
-        'method'  => "POST",
-        'content' => $body,
+      'header' => "Content-Type: application/x-www-form-urlencoded\r\n".
+      "Content-Length: ".strlen($body)."\r\n".
+      "User-Agent:MyAgent/1.0\r\n",
+      'method'  => "POST",
+      'content' => $body,
     ),
   );
   $context  = stream_context_create($opts);
@@ -325,36 +314,12 @@ public function getInfo($_infos = '') {
   return $return;
 }
 
-public static function event() {
-
-  $messageType = init('messagetype');
-  switch ($messageType) {
-
-    case 'saveValue' : self::saveValue(); break;
-  }
-}
-
-/*     * *********************Methode d'instance************************* */
-
-
-/*     * **********************Getteur Setteur*************************** */
 }
 
 
 
 class unipiCmd extends cmd {
-  /*     * *************************Attributs****************************** */
-
-
-  /*     * ***********************Methode static*************************** */
-
-
-  /*     * *********************Methode d'instance************************* */
-
-
   public function execute($_options = null) {
-
-
     switch ($this->getType()) {
 
       case 'info' :
@@ -414,8 +379,4 @@ class unipiCmd extends cmd {
     return true;
 
   }
-
-
-
-  /*     * **********************Getteur Setteur*************************** */
 }
