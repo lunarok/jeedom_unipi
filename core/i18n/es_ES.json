@@ -1,0 +1,35 @@
+{
+    "plugins\/unipi\/desktop\/php\/unipi.php": {
+        "Ajouter un équipement": "Ajouter un équipement",
+        "Rechercher": "Rechercher",
+        "Mes UniPi": "Mes UniPi",
+        "Sauvegarder": "Sauvegarder",
+        "Supprimer": "Supprimer",
+        "Configuration avancée": "Configuration avancée",
+        "Equipement": "Equipement",
+        "Entrées Digitales": "Entrées Digitales",
+        "Relais": "Relais",
+        "IO Analogiques": "IO Analogiques",
+        "Température 1wire": "Température 1wire",
+        "Commandes": "Commandes",
+        "Nom de l'Unipi": "Nom de l'Unipi",
+        "Nom de l'équipement unipi": "Nom de l'équipement unipi",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Catégorie": "Catégorie",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "Commentaire": "Commentaire",
+        "Adresse Unipi": "Adresse Unipi",
+        "Nom": "Nom",
+        "Sous-Type": "Sous-Type",
+        "Valeur": "Valeur",
+        "Paramètres": "Paramètres"
+    },
+    "plugins\/unipi\/desktop\/js\/unipi.js": {
+        "Nom commande": "Nom commande",
+        "Afficher": "Afficher",
+        "Historiser": "Historiser",
+        "Tester": "Tester"
+    }
+}
