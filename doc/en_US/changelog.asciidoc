@@ -1,6 +1,6 @@
 ==== Version 1.0
 
-Mise à jour de la chartre graphique
+Update the graphic charter
 
 Installation par le moteur 2.0
 

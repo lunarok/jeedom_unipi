@@ -1,6 +1,6 @@
 ==== UniPi, une carte relais et IO pour Raspberry Pi
 
-La carte UniPi dispose de :
+The UniPi board has:
 
 8x relais 5A
 14 entrées digitales 5-24V qui peuvent servir en impulsions, résistance de pull-up logiciel, debounce aussi (8 pour IPX800 + 4 impulsions)
