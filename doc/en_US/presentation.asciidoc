@@ -1,4 +1,4 @@
-==== UniPi, une carte relais et IO pour Raspberry Pi
+==== UniPi, Raspberry Pi IO and relay card
 
 The UniPi board has:
 
