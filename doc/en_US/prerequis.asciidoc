@@ -1,6 +1,6 @@
 ==== Evok
 
-Il faut installer Evok sur le Pi branché à la carte Unipi.
+Installing Evok on the IP connected to the card Unipi.
 
 Jeedom ne nécessite pas d'être installé sur ce même Pi, c'est possible mais pas obligatoire.
 
