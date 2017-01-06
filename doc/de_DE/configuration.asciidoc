@@ -1,4 +1,4 @@
-==== Configuration du plugin
+==== Plugin Konfiguration
 
 image::../images/installation1.png[Image du produit]
 
@@ -10,7 +10,7 @@ Il n'y a pas de configuration du plugin, les dépendances sont installées autom
 
 image::../images/installation4.png[Image du produit]
 
-==== Configuration d'un équipement
+==== Konfiguration von Geräten
 
 On créer l'équipement depuis la page Unipi
 

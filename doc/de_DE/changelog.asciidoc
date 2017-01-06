@@ -6,7 +6,7 @@ Installation par le moteur 2.0
 
 ==== Version 0.1
 
-Première version
+Erste version
 
  - Permet de récupérer automatiquement les informations d'une carte UniPi
  - Mise à jour automatique en push des informations
