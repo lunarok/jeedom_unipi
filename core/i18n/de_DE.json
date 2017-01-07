@@ -21,15 +21,15 @@
         "Visible": "Sichtbar",
         "Commentaire": "Kommentar",
         "Adresse Unipi": "UniPi Adresse",
-        "Nom": "Nom",
-        "Sous-Type": "Sous-Type",
-        "Valeur": "Valeur",
-        "Paramètres": "Paramètres"
+        "Nom": "Name",
+        "Sous-Type": "Unter-Typ",
+        "Valeur": "Wert",
+        "Paramètres": "Parameter"
     },
     "plugins\/unipi\/desktop\/js\/unipi.js": {
-        "Nom commande": "Nom commande",
-        "Afficher": "Afficher",
-        "Historiser": "Historiser",
-        "Tester": "Tester"
+        "Nom commande": "Befehl Name",
+        "Afficher": "Anzeigen",
+        "Historiser": "Archivieren",
+        "Tester": "Testen"
     }
 }
