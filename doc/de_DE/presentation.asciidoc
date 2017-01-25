@@ -2,11 +2,11 @@
 
 La carte UniPi dispose de :
 
-8x relais 5A
+8x Relais 5A
 14 entrées digitales 5-24V qui peuvent servir en impulsions, résistance de pull-up logiciel, debounce aussi (8 pour IPX800 + 4 impulsions)
 2 entrée analogiques 0-10V
 1 sortie analogique 0-10V (inexistant sur l'IPX)
-Port 1-wire pour la température + humidité
+1-Wire Port für Temperatur + Feuchtigkeit
 
 Cartes d'extension disponibles également (actuellement par exemple, carte 8 relais)
 8 cartes d'extension possibles par UniPi (72 relais pour un Pi donc)
