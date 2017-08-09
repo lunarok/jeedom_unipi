@@ -73,7 +73,7 @@ class unipi extends eqLogic {
     }
     log::add('unipi', 'info', 'Lancement du démon unipi');
 
-    $url = network::getNetworkAccess('internal') . '/plugins/unipi/core/api/unipi.php?apikey=' . jeedom::getApiKey('unipi');
+    $url = network::getNetworkAccess('internal', 'proto:127.0.0.1:port:comp') . '/plugins/unipi/core/api/unipi.php?apikey=' . jeedom::getApiKey('unipi');
     $service_path = realpath(dirname(__FILE__) . '/../../resources');
 
     foreach ($deamon_info['notlaunched'] as $addr) {
