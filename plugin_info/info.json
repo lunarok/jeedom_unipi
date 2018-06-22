@@ -1,10 +1,13 @@
 {
 	"id" : "unipi",
 	"name" : "UniPi",
+	"description" : "Permet de communiquer avec des cartes UniPi, la communication se fait via l'API Evok. Le plugin permet de gérer plusieurs cartes et ne necessite pas d'avoir un jeedom installer en local.Le plugin découvre automatiquement tous les IO de la carte et les capteurs du bus 1wire qui sont créer en informations dans Jeedom. Des actions sont créées pour chaque output pour les contrôler. Les modifications sur UniPi sont également recues en push par jedom (changement des inputs ou capteurs 1wire)",
 	"licence" : "AGPL",
 	"author" : "lunarok",
 	"require" : "2.4",
 	"category" : "automation protocol",
+	"language" : ["fr_FR","en_US"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
   "hasDependency" : 1,
   "hasOwnDeamon" : 1,
 	"changelog" : "https://lunarok.github.io/jeedom_docs/plugins/unipi/changelog.html",
