@@ -1,5 +1,0 @@
-[panel,primary]
-.Est-ce que les changements sur la carte UniPi sont automatiquement remontés ?
---
-Oui, la connexion à la carte est faite en websocket pour permettre les remontées en push.
---

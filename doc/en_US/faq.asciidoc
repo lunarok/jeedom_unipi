@@ -1,5 +1,0 @@
-[panel,primary]
-. Are changes on UniPi automatically back on Jeedom?
---
-Oui, la connexion à la carte est faite en websocket pour permettre les remontées en push.
---
