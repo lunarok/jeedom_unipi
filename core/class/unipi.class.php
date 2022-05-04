@@ -40,24 +40,6 @@ class unipi extends eqLogic {
     return $return;
   }
 
-  public static function dependancy_info() {
-    $return = array();
-    $return['log'] = 'unipi_dep';
-    $cmd = "dpkg -l | grep python-websocket";
-    exec($cmd, $output, $return_var);
-    if ($output[0] != "") {
-      $return['state'] = 'ok';
-    } else {
-      $return['state'] = 'nok';
-    }
-    return $return;
-  }
-
-  public static function dependancy_install() {
-    exec('sudo apt-get -y install python-websocket >> ' . log::getPathToLog('unipi_dep') . ' 2>&1 &');
-  }
-
-
   public static function cron5() {
     foreach (eqLogic::byType('unipi') as $unipi) {
       log::add('unipi', 'debug', 'Vérification de l\'état du Unipi : ' . $unipi->getId());
