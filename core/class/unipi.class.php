@@ -59,7 +59,7 @@ class unipi extends eqLogic {
     $service_path = realpath(dirname(__FILE__) . '/../../resources');
 
     foreach ($deamon_info['notlaunched'] as $addr) {
-      $cmd = 'nice -n 19 python ' . $service_path . '/unipi.py ' . $addr . ' ' . $url;
+      $cmd = 'nice -n 19 python**3** ' . $service_path . '/unipi.py ' . $addr . ' ' . $url;
 
       log::add('unipi', 'debug', 'Lancement démon unipi : ' . $cmd);
       $result = exec('nohup ' . $cmd . ' >> ' . log::getPathToLog('unipi_node') . ' 2>&1 &');
